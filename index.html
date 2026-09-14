@@ -278,6 +278,38 @@ td.asm-hl{background:#f0f6ff!important;color:var(--info)!important;font-weight:6
 .prio-p{background:#fff3cd;color:#856404;border:1px solid #f0c040;}
 .prio-u{background:#fde8e8;color:#9b1c1c;border:1px solid #f5a0a0;}
 .prio-cell{white-space:nowrap;min-width:80px;}
+
+/* Zone totals footer row */
+.total-row td{
+  font-weight:800;
+  background:linear-gradient(135deg,#0B1F3A 0%,#12294f 100%)!important;
+  color:#fff!important;
+  padding:9px 11px;
+  border-top:2px solid var(--accent)!important;
+  white-space:nowrap;
+  position:sticky;
+  bottom:0;
+  z-index:12;
+}
+.total-row td.tr-label{
+  color:#ffd7ad!important;
+  font-size:12px;
+  letter-spacing:.3px;
+  text-transform:uppercase;
+}
+.total-row td.tr-zone{
+  color:#7ef5c0!important;
+  text-align:right;
+}
+.total-row td.tr-grand{
+  color:#ffd7ad!important;
+  font-size:13px;
+  text-align:right;
+  border-left:2px solid var(--accent)!important;
+}
+.total-row td.tr-empty{
+  border:none!important;
+}
 </style>
 </head>
 <body>
@@ -919,6 +951,18 @@ function renderZoneTable(){
   const totCols=7+az.reduce((s,z)=>{const exp=expandedZones.has(z);return s+(exp?(DATA.zone_asm_map[z]||[]).length:0)+1;},0)+1;
   if(!rows.length){body.innerHTML='<tr class="empty-r"><td colspan="'+totCols+'">No products match.</td></tr>';return;}
 
+  // ── Build totals ──
+  const zTotals={};  // zone total
+  const aTotals={};  // asm totals
+  let grandTotal=0;
+  az.forEach(z=>{
+    zTotals[z]=rows.reduce((s,p)=>s+(p._zv[z]||0),0);
+    (DATA.zone_asm_map[z]||[]).forEach(a=>{
+      aTotals[z+'|'+a]=rows.reduce((s,p)=>s+(p._av[z+'|'+a]||0),0);
+    });
+  });
+  grandTotal=rows.reduce((s,p)=>s+p._total,0);
+
   body.innerHTML=rows.map(p=>{
     const bc=p.brand==='Deli'?'bd-d':(p.brand==='iSelect'?'bd-i':'bd-o');
     const sc=p.stock<=0?'s0':'';
@@ -950,7 +994,35 @@ function renderZoneTable(){
       zoneCells+
       '<td class="gt-cell r">'+(p._total>0?fC(p._total):'<span class="dash">–</span>')+'</td>'+
     '</tr>';
-  }).join('');
+  }).join('') + buildTotalsRow(az,zTotals,aTotals,grandTotal);
+}
+
+function buildTotalsRow(az,zTotals,aTotals,grandTotal){
+  // 8 fixed left cols: photo, code, name, category, brand, stock, dp, priority
+  let row='<tr class="total-row">';
+  row+='<td class="col-sticky col-s0 tr-empty" style="background:linear-gradient(135deg,#0B1F3A 0%,#12294f 100%)!important;"></td>';
+  row+='<td class="col-sticky col-s1 tr-empty" style="background:linear-gradient(135deg,#0B1F3A 0%,#12294f 100%)!important;"></td>';
+  row+='<td class="col-sticky col-s2z tr-label" style="background:linear-gradient(135deg,#0B1F3A 0%,#12294f 100%)!important;">&#9660; Zone Totals</td>';
+  row+='<td class="col-sticky col-s3 tr-empty" style="background:linear-gradient(135deg,#0B1F3A 0%,#12294f 100%)!important;"></td>';
+  row+='<td class="col-sticky col-s4 tr-empty" style="background:linear-gradient(135deg,#0B1F3A 0%,#12294f 100%)!important;"></td>';
+  row+='<td class="col-sticky col-s5 tr-empty" style="background:linear-gradient(135deg,#0B1F3A 0%,#12294f 100%)!important;"></td>';
+  row+='<td class="col-sticky col-s6 tr-empty" style="background:linear-gradient(135deg,#0B1F3A 0%,#12294f 100%)!important;"></td>';
+  row+='<td class="col-sticky tr-empty" style="left:643px;background:linear-gradient(135deg,#0B1F3A 0%,#12294f 100%)!important;"></td>';
+  az.forEach(z=>{
+    const asms=(DATA.zone_asm_map&&DATA.zone_asm_map[z])||[];
+    const isExp=expandedZones.has(z);
+    if(isExp){
+      asms.forEach(a=>{
+        const v=aTotals[z+'|'+a]||0;
+        row+='<td class="tr-zone r">'+(v>0?fB(v):'<span class="dash" style="color:#557">–</span>')+'</td>';
+      });
+    }
+    const zt=zTotals[z]||0;
+    row+='<td class="tr-zone r" style="border-right:2px solid rgba(255,255,255,.15);font-size:13px;">'+fB(zt)+'</td>';
+  });
+  row+='<td class="tr-grand r">'+fB(grandTotal)+'</td>';
+  row+='</tr>';
+  return row;
 }
 
 function render2(){
