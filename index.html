@@ -272,6 +272,12 @@ td.asm-hl{background:#f0f6ff!important;color:var(--info)!important;font-weight:6
 /* ASM filter select */
 #zaF{padding:6px 8px;border:1px solid var(--line);border-radius:7px;font-size:12.5px;color:var(--ink);background:var(--bg);min-width:130px;}
 #zaF:focus{outline:none;border-color:var(--accent);}
+
+/* Priority badges */
+.prio-badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;white-space:nowrap;line-height:1.4;}
+.prio-p{background:#fff3cd;color:#856404;border:1px solid #f0c040;}
+.prio-u{background:#fde8e8;color:#9b1c1c;border:1px solid #f5a0a0;}
+.prio-cell{white-space:nowrap;min-width:80px;}
 </style>
 </head>
 <body>
@@ -356,6 +362,7 @@ td.asm-hl{background:#f0f6ff!important;color:var(--info)!important;font-weight:6
             <th data-key="brand"><div class="th-inn">Brand <span class="sa">↕</span></div></th>
             <th class="r" data-key="stock"><div class="th-inn">Stock <span class="sa on">▼</span></div></th>
             <th class="r" data-key="totalDp"><div class="th-inn">DP Value <span class="sa">↕</span></div></th>
+            <th class="no-sort" style="min-width:90px;">Liq. Priority</th>
             <th class="r" data-key="_qty"><div class="th-inn">Qty Sold <span class="sa">↕</span></div></th>
             <th class="r" data-key="_nsi"><div class="th-inn">NSI Sales <span class="sa">↕</span></div></th>
             <th class="r" data-key="dpPrice"><div class="th-inn">DP Price <span class="sa">↕</span></div></th>
@@ -398,6 +405,7 @@ pencil-Tri-HB</td><td><span class="tag" style="background:#fff2d1;color:#8a6d1a;
     <select id="zmF"><option value="">All Months</option><option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>November</option><option>December</option></select>
     <select id="zzF"><option value="">All Zones</option><option>Md. Amran Ali</option><option>Md. Hafizur Rahman</option><option>Md. Shah Alam</option><option>Md. Sujon Ali</option><option>Fazlul Karim Mamun</option><option>Nani Gopal</option><option>Tabassum Tinney</option></select>
     <select id="zaF"><option value="">All ASMs</option><option value=" Kazi Injamamul Islam"> Kazi Injamamul Islam</option><option value="Abul Hasan">Abul Hasan</option><option value="Ashequr Rasul">Ashequr Rasul</option><option value="Dewan Md. Samsuddoha">Dewan Md. Samsuddoha</option><option value="Kazi Injamamul Islam">Kazi Injamamul Islam</option><option value="MD. Sumsuzzaman Shakil">MD. Sumsuzzaman Shakil</option><option value="Md Rakibul Islam">Md Rakibul Islam</option><option value="Md. Abdus Salam">Md. Abdus Salam</option><option value="Md. Abu Sayed">Md. Abu Sayed</option><option value="Md. Abul Hasan">Md. Abul Hasan</option><option value="Md. Afjal Hossain">Md. Afjal Hossain</option><option value="Md. Akterujjaman">Md. Akterujjaman</option><option value="Md. Alamgir Hossain">Md. Alamgir Hossain</option><option value="Md. Arman">Md. Arman</option><option value="Md. Ashekur Rahaman">Md. Ashekur Rahaman</option><option value="Md. Ayub Hossen">Md. Ayub Hossen</option><option value="Md. Ekram Hossain">Md. Ekram Hossain</option><option value="Md. Golam Rusul">Md. Golam Rusul</option><option value="Md. Harun Or Rashid">Md. Harun Or Rashid</option><option value="Md. Intadul Islam">Md. Intadul Islam</option><option value="Md. Jabedul Alam">Md. Jabedul Alam</option><option value="Md. Jalal Uddin">Md. Jalal Uddin</option><option value="Md. Moin Uddin">Md. Moin Uddin</option><option value="Md. Naim Hossain">Md. Naim Hossain</option><option value="Md. Rubel Ali">Md. Rubel Ali</option><option value="Md. Saidul Islam">Md. Saidul Islam</option><option value="Md. Shahed Alam">Md. Shahed Alam</option><option value="Md.Abdul Baki">Md.Abdul Baki</option><option value="Md.Abu Hashem">Md.Abu Hashem</option><option value="Murad Kabir">Murad Kabir</option><option value="Palash Biswas">Palash Biswas</option><option value="Shipon">Shipon</option><option value="Shirajul Islam">Shirajul Islam</option><option value="Uttam Kumar Mondol">Uttam Kumar Mondol</option></select>
+    <select id="zpriF"><option value="">All Priority</option><option value="Priority">Priority</option><option value="Urgent &amp; Topmost Priority">Urgent &amp; Topmost Priority</option></select>
     <select id="zcF"><option value="">All Categories</option><option>Anti Cutter</option><option>Ballpen</option><option>Binder Clip</option><option>Colored Pencil</option><option>Compass</option><option>Correction Instrument</option><option>Cutter Blade</option><option>Dektop Calculator</option><option>Desk Organizar</option><option>Desk Pen Stand</option><option>Desktop Calculator</option><option>Eraser</option><option>File bag</option><option>Gel Pen</option><option>Glue Stick</option><option>Graphite Pencil</option><option>Graphite pencil</option><option>Highlighter</option><option>Liquid Glue</option><option>Mini Calculator</option><option>Numbering Machine</option><option>Office Pin</option><option>Oil Pastel</option><option>Paper Clips</option><option>Permanent Marker</option><option>Portable Calculator</option><option>Punch Machine</option><option>Push Pin</option><option>Roller Pen</option><option>Scientific Calculator</option><option>Scissors</option><option>Sharpener</option><option>Smart Tablet</option><option>Staple Remover</option><option>Stapler</option><option>Stapler Remover</option><option>Staples</option><option>Stationery Set</option><option>Sticky Notes</option><option>Super Glue</option><option>Tape Dispenser</option><option>Thumb Tack</option><option>White Glue</option><option>Whiteboard Marker</option></select>
     <select id="zpF"><option value="">All Products</option><option value="priced">In Price List</option><option value="unpriced">Not in Price List</option></select>
     <div class="btog" id="zbTog"><button data-brand="" class="active">All</button><button data-brand="Deli">Deli</button><button data-brand="iSelect">iSelect</button></div>
@@ -453,6 +461,7 @@ let DATA = {"products":[{"sap":140018911,"code":"50005D","name":"(WC062) Scribe 
 const DEFAULT_DATA = DATA;
 const SK='aci_db_v4', SK2='aci_db_ts_v4';
 const TRADE_OFFER_CODES=new Set(['500000', '500005', '500006', '500007', '500008', '50000A', '50000B', '50000C', '50000E', '50000F', '50000G', '50000K', '50000L', '50000N', '50000O', '50000S', '50000U', '50000Y', '50000Z', '500012', '500013', '500014', '50001A', '50001B', '50001D', '50001F', '50001J', '50001K', '50001P', '50001X', '500026', '500027', '500028', '50002H', '50002J', '50002L', '50002P', '50002U', '50002V', '50002W', '500033', '50003A', '50003D', '50003F', '500046', '500047', '500049', '50004A', '50004B', '50004D', '50004E', '50004F', '50004H', '50004I', '50004M', '50004P', '50004Q', '50004Y', '500051', '500052', '500057', '50005A', '50005B', '50005C', '50005D', '50005E', '50005F', '50005G', '50005H', '50005K', '50005L', '50005R', '50005Y', '50005Z', '500064', '500066', '500067', '50006A', '50006B', '50006D', '50006F', '50006L', '50006N', '50006Q', '50006X', '50006Y', '50007A', '50007B', '50007F', '50007N', '50007O', '50007P', '50007Q', '50007R', '50007S', '50009L', '50009T', '50010A', '50010D', '50010F', '50010I', '50010O', '50010Q']);
+const PRIORITY_MAP={"50005D": "Priority", "50004M": "Priority", "50005C": "Priority", "50004Y": "Priority", "50006F": "Priority", "50007M": "Urgent & Topmost Priority", "50007N": "Priority", "50006D": "Priority", "50009T": "Priority", "500013": "Priority", "50005F": "Urgent & Topmost Priority", "50005Z": "Priority", "50010F": "Priority", "50000B": "Urgent & Topmost Priority", "50010D": "Priority", "50000V": "Priority", "50000F": "Priority", "50005B": "Urgent & Topmost Priority", "50000C": "Urgent & Topmost Priority", "50001D": "Priority", "50005A": "Urgent & Topmost Priority", "50000K": "Priority", "50000L": "Priority", "50009S": "Priority", "50008Y": "Priority", "50004X": "Urgent & Topmost Priority", "50010Q": "Priority", "50010I": "Priority", "500091": "Priority", "500063": "Priority", "50001B": "Priority", "50009L": "Priority", "50001J": "Priority", "500003": "Priority", "50000": "Priority", "50002M": "Priority", "500012": "Priority", "50002W": "Priority", "500044": "Priority", "500089": "Priority", "50008O": "Urgent & Topmost Priority", "500098": "Urgent & Topmost Priority", "50003D": "Priority", "500014": "Urgent & Topmost Priority", "50002P": "Priority", "50007T": "Urgent & Topmost Priority", "50000G": "Urgent & Topmost Priority", "50002B": "Priority", "50003S": "Urgent & Topmost Priority", "500028": "Priority", "50006": "Priority", "500057": "Urgent & Topmost Priority", "50001O": "Priority", "50001N": "Priority", "50006A": "Priority", "50006Y": "Priority", "50003J": "Priority", "50002U": "Priority", "500007": "Urgent & Topmost Priority", "500022": "Priority", "50007U": "Urgent & Topmost Priority", "500058": "Urgent & Topmost Priority", "50006B": "Priority", "50002V": "Priority", "500097": "Urgent & Topmost Priority", "500018": "Priority", "500087": "Priority", "50003W": "Priority", "500086": "Priority", "500085": "Priority", "50008U": "Priority", "50008V": "Priority", "50009N": "Priority", "50007V": "Urgent & Topmost Priority", "500059": "Urgent & Topmost Priority", "500088": "Priority", "500081": "Priority", "500084": "Priority", "50005K": "Urgent & Topmost Priority"};
 const MONTH_ORDER=['January','February','March','April','May','June','July','August','September','October','November','December'];
 const Z_COLORS=['#3b82f6','#8b5cf6','#10b981','#f59e0b','#ef4444','#06b6d4','#ec4899'];
 
@@ -641,6 +650,7 @@ function render1(){
       '<td><span class="bd '+bc+'">'+p.brand+'</span></td>'+
       '<td class="r '+sc+'"><b>'+fN(p.stock)+'</b></td>'+
       '<td class="r dp-v">'+fC(p.totalDp)+'</td>'+
+      '<td class="prio-cell">'+(PRIORITY_MAP[p.code]?'<span class="prio-badge '+(PRIORITY_MAP[p.code]==="Urgent & Topmost Priority"?'prio-u':'prio-p')+'">'+(PRIORITY_MAP[p.code]==="Urgent & Topmost Priority"?'Urgent':'Priority')+'</span>':'')+'</td>'+
       '<td class="r">'+(p._qty>0?fN(p._qty):'<span class="dash">–</span>')+'</td>'+
       '<td class="r nsi-v">'+(p._nsi>0?fC(p._nsi):'<span class="dash">–</span>')+'</td>'+
       '<td class="r">'+p.dpPrice.toFixed(2)+'</td>'+
@@ -650,7 +660,7 @@ function render1(){
 }
 
 /* ════ TAB 2 ════ */
-let s2={year:'',month:'',zone:'',asm:'',cat:'',brand:'',srch:'',priced:''};
+let s2={year:'',month:'',zone:'',asm:'',cat:'',brand:'',srch:'',priced:'',prio:''};
 // Zone card expand state & ASM selection
 let expandedZones=new Set();
 let selectedASM=null; // {z, a}
@@ -698,11 +708,12 @@ function initTab2(){
   };
   document.getElementById('zcF').onchange=e=>{s2.cat=e.target.value;render2();};
   document.getElementById('zpF').onchange=e=>{s2.priced=e.target.value;render2();};
+  document.getElementById('zpriF').onchange=e=>{s2.prio=e.target.value;render2();};
   document.getElementById('zsrch').oninput=e=>{s2.srch=e.target.value.toLowerCase().trim();render2();};
   document.querySelectorAll('#zbTog button').forEach(b=>{b.onclick=()=>{document.querySelectorAll('#zbTog button').forEach(x=>x.classList.remove('active'));b.classList.add('active');s2.brand=b.dataset.brand;render2();};});
   document.getElementById('zclr').onclick=()=>{
-    s2={year:'',month:'',zone:'',asm:'',cat:'',brand:'',srch:'',priced:''};
-    ['zyF','zmF','zzF','zaF','zcF','zpF','zsrch'].forEach(id=>{document.getElementById(id).value='';});
+    s2={year:'',month:'',zone:'',asm:'',cat:'',brand:'',srch:'',priced:'',prio:''};
+    ['zyF','zmF','zzF','zaF','zpriF','zcF','zpF','zsrch'].forEach(id=>{document.getElementById(id).value='';});
     fillAsmFilter();
     document.querySelectorAll('#zbTog button').forEach(x=>x.classList.remove('active'));
     document.querySelector('#zbTog button[data-brand=""]').classList.add('active');
@@ -742,6 +753,7 @@ function filteredProds2(){
       if(!hasAsmSales)return false;
     }
     if(window.hasNameFilter&&window.hasNameFilter(2)&&!window.getNameFilter(2).has(p.name))return false;
+    if(s2.prio&&PRIORITY_MAP[p.code]!==s2.prio)return false;
     return true;
   });
 }
@@ -832,7 +844,8 @@ function buildZoneTableHeader(){
     '<th class="col-sticky col-s3 prod-hdr" rowspan="2" data-zkey="category">Category</th>'+
     '<th class="col-sticky col-s4 prod-hdr" rowspan="2" data-zkey="brand">Brand</th>'+
     '<th class="col-sticky col-s5 r prod-hdr" rowspan="2" data-zkey="stock">Stock</th>'+
-    '<th class="col-sticky col-s6 r prod-hdr" rowspan="2" data-zkey="totalDp">DP Value</th>';
+    '<th class="col-sticky col-s6 r prod-hdr" rowspan="2" data-zkey="totalDp">DP Value</th>'+
+    '<th class="col-sticky prod-hdr no-sort" rowspan="2" style="min-width:90px;left:643px;border-right:2px solid #c5d9e8;">Liq. Priority</th>';
   let zH='',aH='';
   az.forEach((z,zi)=>{
     const col=Z_COLORS[DATA.zones.indexOf(z)%Z_COLORS.length]||'#3b82f6';
@@ -933,6 +946,7 @@ function renderZoneTable(){
       '<td class="col-sticky col-s4"><span class="bd '+bc+'">'+(p.brand||'—')+'</span></td>'+
       '<td class="col-sticky col-s5 r '+sc+'">'+(np?'<span class="dash">n/a</span>':'<b>'+fN(p.stock)+'</b>')+'</td>'+
       '<td class="col-sticky col-s6 r dp-v">'+(np?'<span class="dash">n/a</span>':fC(p.totalDp))+'</td>'+
+      '<td class="col-sticky prio-cell" style="left:643px;border-right:2px solid #c5d9e8;">'+(PRIORITY_MAP[p.code]?'<span class="prio-badge '+(PRIORITY_MAP[p.code]==="Urgent & Topmost Priority"?'prio-u':'prio-p')+'">'+(PRIORITY_MAP[p.code]==="Urgent & Topmost Priority"?'Urgent':'Priority')+'</span>':'')+'</td>'+
       zoneCells+
       '<td class="gt-cell r">'+(p._total>0?fC(p._total):'<span class="dash">–</span>')+'</td>'+
     '</tr>';
